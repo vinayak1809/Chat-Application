@@ -1,0 +1,76 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+
+*{
+    box-sizing: border-box;
+}
+
+body{
+    margin: 0;
+    min-height: 100vh;
+    min-width: 100vw;
+}
+
+.users{
+    position: fixed;
+    top: 20px;
+    left: 20px;
+}
+#users-table {
+    font-family: Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+  }
+  
+  #users-table td, #users-table th {
+    border: 1px solid #ddd;
+    padding: 8px;
+  }
+  
+  #users-table tr:nth-child(even){background-color: #f2f2f2;}
+  
+  #users-table tr:hover {background-color: #ddd;}
+  
+  #users-table th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: #04AA6D;
+    color: white;
+  }
+main{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    max-width: 700px;
+    max-height: 700px;
+    margin: auto;
+}
+main > div >h2{
+    font-family: 'Roboto', sans-serif;
+}
+.chat-section{
+    background-color: aqua;
+    width: 100%;
+    height: 90%;
+}
+footer{
+    position: fixed;
+    background-color: grey;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    width: 100%;
+    bottom: 0;
+    height: 50px;
+}
+input{
+    width: 320px;
+    height: 40px;
+}
+button{
+    width: 50px;
+    height: 40px;}
