@@ -11,18 +11,28 @@ app.use(bodyParser.json());
 app.use(cors());
 
 dotenv.config();
+
 ////////////////////////////////////////////////////
 //routes
 ////////////////////////////////////////////////////
 
 const authRoutes = require("./Backend/server/routes/authRoutes");
+const chatRoutes = require("./Backend/server/routes/chatRoutes");
+
 app.use(authRoutes);
+app.use(chatRoutes);
 
 ////////////////////////////////////////////////////
 //models
 ////////////////////////////////////////////////////
 
 const sequelize = require("./Backend/server/util/database");
+
+const User = require("./Backend/server/src/models/signup");
+const Message = require("./Backend/server/src/models/message");
+
+User.hasMany(Message);
+Message.belongsTo(User);
 
 sequelize
   .sync()
