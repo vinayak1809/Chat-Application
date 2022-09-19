@@ -67,3 +67,7 @@ form > p{
 .last>a{
     margin: 0 0 0 130px;
 }
+
+.signup > button{
+    width: 130px;
+}
