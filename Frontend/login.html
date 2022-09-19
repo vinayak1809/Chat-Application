@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/signup.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.0/axios.min.js"></script>
+    <script src="../js/login.js" defer></script>
+
+    <title>Sign Up</title>
+</head>
+<body>
+    
+    <main>
+        <h3>Login</h3>
+        <div class="google-signup">
+            <button> Sign up with Google </button>
+        </div>
+        <div class="form-section">
+            <form onsubmit="loginUser(event)" method="POST">
+                <li>
+                    <label for="email">Email</label><br><input type="text" name="email" placeholder="you@gmail.com">
+                </li>
+                <li>
+                    <label for="paswords">Password</label><br><input type="password" name="password" placeholder="at least 8 charcters">
+                </li>
+                
+                <div class="signup"><button type="submit">Login</button></div>
+                <p>Forget Password</p>
+                <hr>
+            </form> 
+        </div>
+        <div class="last">
+            <p>Don't have a account!</p>
+            <a href="/signup.html">Sign Up</a>
+        </div>
+    </main>
+
+</body>
+</html>
