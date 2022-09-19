@@ -32,7 +32,9 @@ exports.postChat = async (req, res, next) => {
 
   await Message.create({ username: user, message: msg, userId: id }).then(
     (result) => {
-      return res.status(201).json({ success: true, message: "added message" });
+      return res
+        .status(201)
+        .json({ result: result, success: true, message: "added message" });
     }
   );
 };
