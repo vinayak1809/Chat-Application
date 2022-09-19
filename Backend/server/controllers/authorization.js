@@ -1,6 +1,7 @@
 const express = require("express");
 const User = require("../src/models/signup");
-
+const bcrypt = require("bcrypt");
+const jwt = require("jsonwebtoken");
 const saltRounds = 10;
 
 ///////////////////////////////////////////////
@@ -45,4 +46,51 @@ exports.postSignup = (req, res, next) => {
       }
     });
   });
+};
+
+///////////////////////////////////////////////
+// login
+///////////////////////////////////////////////
+
+function generateAccessToken(id) {
+  return jwt.sign(id, process.env.TOKEN_SECRET, { expiresIn: "24h" });
+}
+
+exports.postLogin = async (req, res, next) => {
+  const { email, password } = req.body;
+
+  const user = await User.findAll({ where: { email: email } })
+    .then((user) => {
+      if (user.length != 0) {
+        bcrypt.compare(password, user[0].password, (err, result) => {
+          if (!err) {
+            const token = generateAccessToken({ id: user[0].id });
+            return res.status(200).json({
+              token: token,
+              success: true,
+              message: "successfully login",
+            });
+          } else if (err) {
+            return res.status(402).json("something went wrong");
+          } else {
+            return res.status(401).json({
+              success: false,
+              message: "invalid password",
+            });
+          }
+        });
+      } else {
+        return res.status(404).json({
+          success: false,
+          message: "user not found",
+        });
+      }
+    })
+    .catch((err) => {
+      console.log(err);
+      res.status(400).json({
+        message: "something went wrong while searching for the user",
+        error: err,
+      });
+    });
 };
