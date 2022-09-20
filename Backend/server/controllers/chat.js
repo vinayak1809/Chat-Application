@@ -1,9 +1,12 @@
 const express = require("express");
 const User = require("../src/models/signup");
 const Message = require("../src/models/message");
+const { Op } = require("sequelize");
 
 exports.getChat = async (req, res, next) => {
-  await Message.findAll()
+  const lastMsg = +req.query.lastMsg;
+
+  await Message.findAll({ where: { id: { [Op.gt]: lastMsg } } })
     .then((messages) => {
       res.status(200).json({
         success: true,
