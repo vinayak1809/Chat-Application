@@ -7,6 +7,7 @@ const token = localStorage.getItem("token");
 
 function displayMessage(messages) {
   const message_table = document.getElementById("messages-table");
+  message_table.innerHTML = "";
   messages.forEach((message) => {
     const tr = document.createElement("tr");
     tr.innerHTML = `<td>${message.message}</td>`;
@@ -32,7 +33,7 @@ async function saveMessage(event) {
     })
     .then((message) => {
       const messages = [message.data.result];
-      displayMessage(messages);
+      //displayMessage(messages);
     });
 }
 
@@ -41,13 +42,16 @@ async function saveMessage(event) {
 ////////////////////////////////////////////////////
 
 window.addEventListener("DOMContentLoaded", async () => {
-  await axios
-    .get(`${url}/chat`, {
-      headers: { authorization: token },
-    })
-    .then((result) => {
-      console.log("hello");
-      const messages = result.data.chat;
-      displayMessage(messages);
+  await new Promise((resolve) => {
+    setInterval(async () => {
+      await axios
+        .get(`${url}/chat`, {
+          headers: { authorization: token },
+        })
+        .then((result) => {
+          const messages = result.data.chat;
+          displayMessage(messages);
+        });
     });
+  }, 1000);
 });
