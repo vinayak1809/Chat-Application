@@ -10,33 +10,51 @@
     <title>HastaGram</title>
 </head>
 <body>
-    <section class="users">
-        <table id="users-table">
-            <tr>
-                <th>Users</th>
-            </tr>
-            <tr>
-                <a href=""><td>John Snow</td></a>
-            </tr>
-    
-        </table>
-    </section>
+   
 
     <main>
-        <div><h2>Hasta-Gram</h2></div>
-        <div class="chat-section">
-            <table id="messages-table">
-    
+        <section class="chat">
+            <h1>People</h1>
+            <div class="people">
 
-            </table>
-        </div>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos, porro aut ea quidem dicta, nostrum rem quisquam quod excepturi laboriosam harum neque sequi magni sapiente, doloremque eveniet eum placeat aliquid?
+            
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos, porro aut ea quidem dicta, nostrum rem quisquam quod excepturi laboriosam harum neque sequi magni sapiente, doloremque eveniet eum placeat aliquid?
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos, porro aut ea quidem dicta, nostrum rem quisquam quod excepturi laboriosam harum neque sequi magni sapiente, doloremque eveniet eum placeat aliquid?
+
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos, porro aut ea quidem dicta, nostrum rem quisquam quod excepturi laboriosam harum neque sequi magni sapiente, doloremque eveniet eum placeat aliquid?
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos, porro aut ea quidem dicta, nostrum rem quisquam quod excepturi laboriosam harum neque sequi magni sapiente, doloremque eveniet eum placeat aliquid?
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos, porro aut ea quidem dicta, nostrum rem quisquam quod excepturi laboriosam harum neque sequi magni sapiente, doloremque eveniet eum placeat aliquid?
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos, porro aut ea quidem dicta, nostrum rem quisquam quod excepturi laboriosam harum neque sequi magni sapiente, doloremque eveniet eum placeat aliquid?
+            </div>
+            
+            <h1> Groups</h1>
+            <div class="groups">Groups
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos, porro aut ea quidem dicta, nostrum rem quisquam quod excepturi laboriosam harum neque sequi magni sapiente, doloremque eveniet eum placeat aliquid?
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos, porro aut ea quidem dicta, nostrum rem quisquam quod excepturi laboriosam harum neque sequi magni sapiente, doloremque eveniet eum placeat aliquid?
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos, porro aut ea quidem dicta, nostrum rem quisquam quod excepturi laboriosam harum neque sequi magni sapiente, doloremque eveniet eum placeat aliquid?
+
+            </div>
+        </section>
+        <section class="messages">
+            <div class="display-msg">
+                <h2>Hasta-Gram</h2>
+                <div class="chat-section">
+                    <table id="messages-table">
+    
+                    </table>
+                </div>
+            </div>
+            <div class="submit-btn">
+                <form onsubmit="saveMessage(event)">
+                    <input type="text" name="message" placeholder="message">
+                    <button type="submit">send</button>
+                </form>
+            </div>
+        </section>
+     
     </main>
-    <footer>
-        <form onsubmit="saveMessage(event)">
-            <input type="text" name="message" placeholder="message">
-            <button type="submit">send</button>
-        </form>
-    </footer>
+   
 
     
 </body>

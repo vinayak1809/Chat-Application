@@ -8,55 +8,74 @@
 
 body{
     margin: 0;
-    min-height: 100vh;
-    min-width: 100vw;
-}
-
-.users{
-    position: fixed;
-    top: 20px;
-    left: 20px;
-}
-#users-table {
-    font-family: Arial, Helvetica, sans-serif;
-    border-collapse: collapse;
-    width: 100%;
-}
-  
-#users-table td, #users-table th {
-  border: 1px solid #ddd;
-  padding: 8px;
-}
-  
-#users-table tr:nth-child(even){background-color: #f2f2f2;}
-
-#users-table tr:hover {background-color: #ddd;}
-
-#users-table th {
-  padding-top: 12px;
-  padding-bottom: 12px;
-  text-align: left;
-  background-color: #04AA6D;
-  color: white;
 }
 /* ///////////////////////////////// */ 
 main{
     display: flex;
     align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    max-width: 700px;
-    max-height: 700px;
-    margin: auto;
+    justify-content: space-between;
+    flex-direction: row;
+    max-width: 100%;
+    max-height: 100%;
+    margin: 10px 50px;
 }
-main > div >h2{
+.chat,.messages{
+    width: 45%;
+   
+}
+.chat{
+    display: flex;
+    flex-direction: column;
+    align-items:center;
+    justify-content: center;
+    height: 600px;
+}
+
+.people,.groups{
+    margin: 10px 50px;
+    max-width:80% ;
+    height:230px ;
+    align-self: flex-start;
+    overflow-y:auto;
+}
+
+.messages{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin: 0 ;
+    height: 600px;
+}
+.display-msg{
+    background-color:burlywood;
+    max-height: 500px;
+}
+.messages > div >h2{
     font-family: 'Roboto', sans-serif;
 }
-.chat-section{
-    background-color: aqua;
-    width: 100%;
-    height: 90%;
+.submit-btn{
+    display: flex;
+    align-self: center;
+    width :400px;
+    padding: 5px;
+    border: 1px solid green;
+    border-radius: 18px;
 }
+
+input{
+    border: none;
+    width: 320px;
+    height: 40px;
+}
+input:focus{
+    outline: none;
+}
+button{
+    border: none;
+    width: 50px;
+    height: 40px;
+}
+/* ////////////////////////////////////////// */
 
 #messages-table {
     font-family: Arial, Helvetica, sans-serif;
@@ -81,21 +100,3 @@ main > div >h2{
     background-color: #04AA6D;
     color: white;
   }
-footer{
-    position: fixed;
-    background-color: grey;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: row;
-    width: 100%;
-    bottom: 0;
-    height: 50px;
-}
-input{
-    width: 320px;
-    height: 40px;
-}
-button{
-    width: 50px;
-    height: 40px;}
