@@ -18,9 +18,11 @@ dotenv.config();
 
 const authRoutes = require("./Backend/server/routes/authRoutes");
 const chatRoutes = require("./Backend/server/routes/chatRoutes");
+const groupRoutes = require("./Backend/server/routes/groupRoutes");
 
 app.use(authRoutes);
 app.use(chatRoutes);
+app.use(groupRoutes);
 
 ////////////////////////////////////////////////////
 //models
@@ -39,9 +41,6 @@ Message.belongsTo(User);
 
 User.belongsToMany(Group, { through: GroupMembers });
 Group.belongsToMany(User, { through: GroupMembers });
-
-Group.hasMany(User);
-User.belongsTo(Group);
 
 Group.hasMany(GroupMessages);
 GroupMessages.belongsTo(Group);
