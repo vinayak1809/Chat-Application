@@ -10,6 +10,8 @@ body{
     margin: 0;
 }
 /* ///////////////////////////////// */ 
+/* show users */ 
+/* ///////////////////////////////// */ 
 main{
     display: flex;
     align-items: center;
@@ -38,6 +40,17 @@ main{
     align-self: flex-start;
     overflow-y:auto;
 }
+.head{
+    margin-left: 50px;
+    align-self: flex-start;
+}
+.create-grp{
+    align-self: flex-end;
+}
+
+/* ///////////////////////////////// */ 
+/* show chats of one-one users */ 
+/* ///////////////////////////////// */ 
 
 .messages{
     display: flex;
@@ -45,6 +58,9 @@ main{
     justify-content: space-between;
     margin: 0 ;
     height: 600px;
+}
+.msg-head{
+    align-self: center;
 }
 .display-msg{
     background-color:burlywood;
@@ -75,7 +91,10 @@ button{
     width: 50px;
     height: 40px;
 }
-/* ////////////////////////////////////////// */
+
+/* ///////////////////////////////// */ 
+/* messages of one-one users */ 
+/* ///////////////////////////////// */ 
 
 #messages-table {
     font-family: Arial, Helvetica, sans-serif;
@@ -100,3 +119,83 @@ button{
     background-color: #04AA6D;
     color: white;
   }
+
+/* ///////////////////////////////// */ 
+/* hidden section of create group */ 
+/* ///////////////////////////////// */ 
+
+#container{
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    align-items: center;
+    justify-content: center;
+    font-family: inherit;
+}
+
+#container.active{
+    display: flex;
+}
+
+.pop-up{
+    position: relative;
+    background-color: white;
+    font-size: small;
+    box-shadow: 2px 2px 10px rgba(0,0,0,0.3);
+    border-radius: 5px;
+    padding: 2rem;
+    width: 400px;
+    height: 500px;
+    /* margin: 50px; */
+}
+.add-people{
+font-size: 2rem;
+list-style-type: none;
+}
+.add-people > li{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+.add-people > li > input{
+    width: 20px;
+    height: 20px;
+}
+.pop-up .close,.pop-up .create{
+    background-color: white;
+    color: black;
+    font-size: 1.0rem;
+    position: absolute;
+    right: 10px;
+}
+
+.pop-up .close{
+    top: 10px;
+}
+.pop-up .create{
+    bottom: 10px;
+}
+
+/* ///////////////////////////////// */ 
+/* hdden section show group */ 
+/* ///////////////////////////////// */ 
+
+#grp-msg-container{
+    display: none;
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    background-color: rgba(0, 0, 0, 0.5);
+    align-items: center;
+    justify-content: center;
+    font-family: inherit;
+    flex-direction: column;
+}
+
+#grp-msg-container.active{
+    display: flex;
+}
