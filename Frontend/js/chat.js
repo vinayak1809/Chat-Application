@@ -1,9 +1,14 @@
 const url = "http://localhost:5000";
 const token = localStorage.getItem("token");
+const headers = { headers: { authorization: token } };
+
+const people = document.getElementById("people");
+const add_people = document.getElementById("add-people");
 
 ////////////////////////////////////////////////////
 //save message to datbase
 ////////////////////////////////////////////////////
+
 async function saveToLocalstorage(messages) {
   const obj = {
     id: messages[0].id,
@@ -34,9 +39,7 @@ async function saveMessage(event) {
     message: form.get("message"),
   };
 
-  const postMessage = await axios.post(`${url}/chat`, message, {
-    headers: { authorization: token },
-  });
+  const postMessage = await axios.post(`${url}/chat`, message, headers);
 
   const messages = [postMessage.data.result];
   await saveToLocalstorage(messages);
@@ -51,7 +54,7 @@ async function displayMessage(messages) {
 
   message_table.innerHTML = "";
 
-  await messages.forEach((message) => {
+  return messages.forEach((message) => {
     const tr = document.createElement("tr");
     tr.innerHTML = `<td>${message.msg}</td>`;
 
@@ -60,7 +63,7 @@ async function displayMessage(messages) {
 }
 
 async function update_msg(new_msg, msg_list) {
-  await new_msg.forEach((record) => {
+  new_msg.forEach((record) => {
     msg_list.shift();
     msg_list.push({
       id: record.id,
@@ -68,7 +71,7 @@ async function update_msg(new_msg, msg_list) {
       username: record.username,
     });
 
-    localStorage.setItem("msgRecord", JSON.stringify(msg_list));
+    return localStorage.setItem("msgRecord", JSON.stringify(msg_list));
   });
 }
 
@@ -81,7 +84,7 @@ window.addEventListener("DOMContentLoaded", async () => {
   const msg_list = JSON.parse(record);
   const last_record = msg_list[msg_list.length - 1].id;
 
-  await new Promise((resolve) => {
+  const hello = await new Promise((resolve) => {
     setTimeout(async () => {
       if (record) {
         const display = await displayMessage(msg_list);
@@ -92,11 +95,27 @@ window.addEventListener("DOMContentLoaded", async () => {
             headers: { authorization: token },
           }
         );
-
         const update = await update_msg(message.data.chat, msg_list);
+        resolve(update);
       } else {
         console.log("no msg");
       }
-    });
-  }, 1000);
+    }, 1000);
+  });
+  call_it();
 });
+
+async function call_it() {
+  const user = await axios.get(`${url}/user `, headers);
+
+  user.data.users.forEach((user) => {
+    const p = document.createElement("p");
+    p.innerHTML = user.name;
+    people.appendChild(p);
+
+    const li = document.createElement("li");
+    li.innerHTML = `  <input type="checkbox" id="${user.id}" name="public">
+                      <label for="">${user.name}</label>`;
+    add_people.appendChild(li);
+  });
+}

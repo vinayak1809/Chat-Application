@@ -9,7 +9,8 @@ async function loginUser(event) {
 
   await axios
     .post("http://localhost:5000/login", login)
-    .then(() => {
+    .then((result) => {
+      localStorage.setItem("token", result.data.token);
       alert("logged in successfully");
       //Window.location.href = "http://localhost:4000/login.html";
     })

@@ -3,6 +3,22 @@ const User = require("../src/models/signup");
 const Message = require("../src/models/message");
 const { Op } = require("sequelize");
 
+exports.getUsers = async (req, res, next) => {
+  User.findAll({
+    where: {
+      id: {
+        [Op.ne]: req.id,
+      },
+    },
+  }).then((users) => {
+    res.status(200).json({
+      success: true,
+      users: users,
+      message: "users send successfully",
+    });
+  });
+};
+
 exports.getChat = async (req, res, next) => {
   const lastMsg = +req.query.lastMsg;
 
