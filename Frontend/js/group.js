@@ -108,6 +108,14 @@ async function callGrp(event) {
     document.getElementById("Group-name").innerHTML = event.target.innerHTML;
     document.getElementById("admin").innerHTML = `${MsgList.data.group_admin}`;
 
+    if (MsgList.data.authTochgAdmin) {
+      document.getElementById("open-chg-admin").name = `${group_id.group_id}`;
+      document.getElementById("open-remove-user").name = `${group_id.group_id}`;
+    } else {
+      document.getElementById("open-chg-admin").style.display = `none`;
+      document.getElementById("open-remove-user").style.display = `none`;
+    }
+
     MsgList.data.groupMsg.forEach((message) => {
       const li = document.createElement("li");
       li.innerHTML = message.messages;

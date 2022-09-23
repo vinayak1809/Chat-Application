@@ -3,7 +3,7 @@ const User = require("../src/models/signup");
 const Group = require("../src/models/group");
 const GroupMember = require("../src/models/groupMembers");
 const GroupMessages = require("../src/models/groupMessage");
-const { Op } = require("sequelize");
+const { Op, where } = require("sequelize");
 
 ///////////////////////////////////////////
 // get group infomartion
@@ -39,6 +39,11 @@ exports.getGroupMessages = async (req, res, next) => {
     var group_admin = await Group.findOne({ where: { id: group_id } });
     var group_admin = await User.findOne({ where: { id: group_admin.admin } });
 
+    let authTochgAdmin = false;
+    if (group_admin.id == req.id) {
+      authTochgAdmin = true;
+    }
+
     const grp_msgs = await GroupMessages.findAll({
       where: { groupId: group_id },
     });
@@ -47,6 +52,7 @@ exports.getGroupMessages = async (req, res, next) => {
       success: true,
       groupMsg: grp_msgs,
       group_admin: group_admin.name,
+      authTochgAdmin: authTochgAdmin,
       message: "msgs sent successfully",
     });
   } catch (err) {
@@ -91,7 +97,7 @@ exports.makeAGroup = async (req, res, next) => {
     });
 
     {
-      var members = [];
+      var members = [{ userId: req.id, groupId: createGroup.id }];
       for (let i = 0; i < group_members.length; i++) {
         var obj = {
           userId: group_members[i],
@@ -100,7 +106,6 @@ exports.makeAGroup = async (req, res, next) => {
         members.push(obj);
       }
     }
-    console.log(group_members, "login.html");
     GroupMember.bulkCreate(members, { returning: true }).then((result) => {
       res
         .status(201)

@@ -8,12 +8,13 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.0/axios.min.js"></script>
     <script src="./js/chat.js" defer></script>
     <script src="./js/group.js" defer></script>
+    <script src="./js/groupAdmin.js" defer></script>
     <title>Chat-App</title>
 </head>
 <body>
-   
 
     <main>
+    
         <section class="chat">
             <h1>People</h1>
             <div id="people" class="people">
@@ -47,9 +48,11 @@
         </section>
      
     </main>
-    <!-- ///////////////////////////////////////////////// --> 
-    <!-- hidden section(create group)--> 
-    <!-- ///////////////////////////////////////////////// --> 
+
+<!-- ///////////////////////////////////////////////// --> 
+<!-- hidden section(create group)--> 
+<!-- ///////////////////////////////////////////////// --> 
+
     <div class="add-grp-section">
         <form onsubmit="SaveGrpMembers(event)" id="container">
             
@@ -70,9 +73,9 @@
         </form>
     </div>
     
-    <!-- ///////////////////////////////////////////////// --> 
-    <!-- hidden section(show group)--> 
-    <!-- ///////////////////////////////////////////////// --> 
+<!-- ///////////////////////////////////////////////// --> 
+<!-- hidden section(show group)--> 
+<!-- ///////////////////////////////////////////////// --> 
     
     <div class="add-grp-section">
         <form onsubmit="SaveGrpMsg(event)" id="grp-msg-container">
@@ -83,10 +86,16 @@
                     <p id="Group-name"></p> 
                     <p id="admin"></p>
                 </div>
+                <div>
+                    <button type="button" id="open-chg-admin"> change admin </button>
+                </div>
+                <div>
+                    <button type="button" id="open-remove-user"> remove users </button>
+                </div>
                 <div id="GrpMsgs" class="add-people">
                    <li> mesasges</li>
                    <li> mesasges</li>
-                </div>
+                </div>+
             </div>
             <div id="submit-btn" class="submit-btn">
                 <input type="text" name="message" placeholder="message">
@@ -95,6 +104,44 @@
         </form>
     </div>
 
-   
+    <!-- ///////////////////////////////////////////////// --> 
+    <!-- change admin(showed after clicking on show group)--> 
+    <!-- ///////////////////////////////////////////////// --> 
+
+    <div class="add-grp-section">
+        <div id="chg-admin-conatiner">
+            <div class="pop-up-grp-admin">
+                <a style="cursor: pointer;" id="close-chg-admin" class="close">X</a>
+                <div>
+                    Group Name
+                </div>
+                <div id="grp-admin" class="add-people">
+                    Change Admin
+                </div>
+                <div id="click-to-chg-admin" class="click-to-chg-admin">
+                    <button id="human1"> human1</button>
+                    <button id="human2"> human2</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- ///////////////////////////////////////////////// --> 
+    <!-- remove user from group --> 
+    <!-- ///////////////////////////////////////////////// --> 
+
+    <div class="add-grp-section">
+        <div id="remove-user-conatiner">
+            <div class="pop-up-grp-admin">
+                <a style="cursor: pointer;" id="close-remove-user" class="close">X</a>
+                <div>
+                    Group Name
+                </div>
+                <div id="click-to-remove-user" class="click-to-remove-user">
+                    <button id="human1"> human1</button>
+                    <button id="human2"> human2</button>
+                </div>
+            </div>
+        </div>
+    </div>
 </body>
 </html>

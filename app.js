@@ -19,10 +19,12 @@ dotenv.config();
 const authRoutes = require("./Backend/server/routes/authRoutes");
 const chatRoutes = require("./Backend/server/routes/chatRoutes");
 const groupRoutes = require("./Backend/server/routes/groupRoutes");
+const grouAdminRoutes = require("./Backend/server/routes/groupAdminRoutes");
 
 app.use(authRoutes);
 app.use(chatRoutes);
 app.use(groupRoutes);
+app.use(grouAdminRoutes);
 
 ////////////////////////////////////////////////////
 //models

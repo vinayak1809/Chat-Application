@@ -199,3 +199,106 @@ list-style-type: none;
 #grp-msg-container.active{
     display: flex;
 }
+
+/* ///////////////////////////////// */ 
+/* hdden section change admin */ 
+/* ///////////////////////////////// */ 
+
+#chg-admin-conatiner{
+    display: none;
+    position: fixed;
+    top: 50px;
+    right: 10px;
+    background-color: rgba(0, 0, 0, 0.5);
+    align-items: center;
+    justify-content: center;
+    font-family: inherit;
+    flex-direction: column;
+}
+
+#chg-admin-conatiner.active{
+    display: flex;
+}
+
+
+.pop-up-grp-admin{
+    position: relative;
+    background-color: white;
+    font-size: small;
+    box-shadow: 2px 2px 10px rgba(0,0,0,0.3);
+    border-radius: 5px;
+    padding: 2rem;
+    width: 300px;
+    height: 400px;
+    /* margin: 50px; */
+}
+.pop-up-grp-admin .close,.pop-up .create{
+    background-color: white;
+    color: black;
+    font-size: 1.0rem;
+    position: absolute;
+    right: 10px;
+}
+
+.pop-up-grp-admin .close{
+    top: 10px;
+}
+.pop-up-grp-admin .create{
+    bottom: 10px;
+}
+
+button{
+    border: none;
+    width: 70px;
+    height: 40px;
+}
+
+
+#remove-user-conatiner{
+    display: none;
+    position: fixed;
+    top: 50px;
+    right: 10px;
+    background-color: rgba(0, 0, 0, 0.5);
+    align-items: center;
+    justify-content: center;
+    font-family: inherit;
+    flex-direction: column;
+}
+
+#remove-user-conatiner.active{
+    display: flex;
+}
+
+
+.pop-up-grp-admin{
+    position: relative;
+    background-color: white;
+    font-size: small;
+    box-shadow: 2px 2px 10px rgba(0,0,0,0.3);
+    border-radius: 5px;
+    padding: 2rem;
+    width: 300px;
+    height: 400px;
+    /* margin: 50px; */
+}
+.pop-up-grp-admin .close,.pop-up .create{
+    background-color: white;
+    color: black;
+    font-size: 1.0rem;
+    position: absolute;
+    right: 10px;
+}
+
+.pop-up-grp-admin .close{
+    top: 10px;
+}
+.pop-up-grp-admin .create{
+    bottom: 10px;
+}
+
+button{
+    border: none;
+    width: 70px;
+    height: 40px;
+}
