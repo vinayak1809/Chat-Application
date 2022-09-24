@@ -13,7 +13,7 @@ async function saveUser(event) {
     .post("http://localhost:5000/signup", Signup)
     .then((result) => {
       alert("signup successfully");
-      //Window.location.href = "http://localhost:4000/login.html";
+      window.location.href = "http://localhost:5000/login.html";
     })
     .catch((err) => {
       alert(err.response.data.message);
