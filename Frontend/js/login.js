@@ -12,7 +12,7 @@ async function loginUser(event) {
     .then((result) => {
       localStorage.setItem("token", result.data.token);
       alert("logged in successfully");
-      //Window.location.href = "http://localhost:4000/login.html";
+      window.location.href = "http://localhost:5000/chat.html";
     })
     .catch((err) => {
       alert(err.response.data.message);
