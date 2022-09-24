@@ -12,6 +12,10 @@ const Message = database.define("message", {
     type: Sequelize.STRING,
     allowNull: false,
   },
+  receiver: {
+    type: Sequelize.INTEGER,
+    allowNull: false,
+  },
   message: {
     type: Sequelize.STRING,
     allowNull: false,
