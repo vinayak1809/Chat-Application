@@ -12,7 +12,7 @@ const { Op, where } = require("sequelize");
 exports.getGroupsMembers = async (req, res, next) => {
   const group_id = req.body.group_id;
   try {
-    const find_grp_admin = await Group.findOne({ where: { id: group_id } });
+    const find_grp_admin = await Group.findByPk(group_id);
 
     const grp_id_list = await GroupMember.findAll({
       attributes: ["userId"],
@@ -61,11 +61,9 @@ exports.removeFromGroup = async (req, res, next) => {
   const userId = req.body.usedid;
   const groupId = req.body.groupid;
 
-  console.log(userId, groupId);
-  const removeUser = await Group.update(
-    { admin: userId },
-    { where: { id: groupId } }
-  );
+  const removeUser = await GroupMember.destroy({
+    where: { groupId: groupId, userId: userId },
+  });
 
   removeUser.then(() => {
     res.status(204).json({ success: true, message: "user removed" });
