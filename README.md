@@ -4,7 +4,17 @@ Chat-Application with Express.js and MySQL. This Web-application contains featur
      &nbsp;> &nbsp; User can create a group, add members to groups and have a chat <br>
      &nbsp;> &nbsp; Group Admin can change privileges of Group <br>
 
+# Requirements
+     1. Node.js and Express.js
+     2. MySQL
+
 # Setup
 ```
-     $ git clone 
+     $ git clone https://github.com/vinayak1809/Chat-Application.git
+     $ cd chat-application   
+     $ npm i
+```
+# Run the Project
+```
+     $ npm start
 ```
