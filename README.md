@@ -13,6 +13,7 @@ Chat-Application with Express.js and MySQL. This Web-application contains featur
      $ git clone https://github.com/vinayak1809/Chat-Application.git
      $ cd chat-application   
      $ npm i
+     $ Change Database Username and Pasword 
 ```
 # Run the Project
 ```
