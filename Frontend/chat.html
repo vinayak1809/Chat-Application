@@ -29,8 +29,22 @@
             </div>
         </section>
 
-
-        <section class="messages">
+      <div id="User-message" class="User-message">
+        <div>
+            <button id="close-view-msg">close</button>
+        </div>
+        <form onsubmit="saveUserMsg(event)">
+            <div id="show-message" class="show-message">
+                <li>message1</li>
+                <li>message2</li>
+            </div>
+            <input type="text" name="message" placeholder="message">
+            <input type="hidden" name="rece-id" id="rece-id">
+            <button type="submit">send</button>
+        </form>
+      </div>
+        
+   <!--      <section class="messages">
             <div class="display-msg">
                 <h2 class="msg-head">Chat-App</h2>
                 <div class="chat-section">
@@ -47,7 +61,7 @@
             </div>
         </section>
      
-    </main>
+    </main> --> 
 
 <!-- ///////////////////////////////////////////////// --> 
 <!-- hidden section(create group)--> 

@@ -302,3 +302,13 @@ button{
     width: 70px;
     height: 40px;
 }
+
+.User-message{
+    width: 400px;
+    height: 400px;
+    background-color: blanchedalmond;
+    display: none;
+}
+.User-message.active{
+    display: block;
+}
